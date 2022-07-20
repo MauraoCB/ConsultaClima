@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace ConsultaClima.Services.DTO{
@@ -6,6 +7,7 @@ namespace ConsultaClima.Services.DTO{
         public string Nome { get; set; }
         public string UF { get; set; }
         public int EstadoId { get; set; }
+        public ICollection<PrevisaoClimaDTO> PrevisaoClima { get; set; }
 
         public CidadeDTO()
         {}

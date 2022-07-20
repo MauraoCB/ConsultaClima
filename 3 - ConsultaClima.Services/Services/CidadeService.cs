@@ -47,5 +47,15 @@ namespace ConsultaClima.Services.Services
 
             return cidadesDTO.Where(c => c.Nome.ToLower().Contains (nome.ToLower())).ToList();
         }
+
+
+
+        public async Task<IList<CidadeDTO>> GetCidadesMaisQuentes()
+        {
+            var cidades = await _cidadeRepository.GetCidadesMaisQuentes();
+            var cidadesDTO = _mapper.Map<IList<CidadeDTO>>(cidades);
+
+            return cidadesDTO;
+        }
     }
 }

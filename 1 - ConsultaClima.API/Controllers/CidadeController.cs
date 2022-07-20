@@ -49,13 +49,36 @@ namespace ConsultaClima.API.Controllers
             }
         }
 
-        [HttpGet]        
-        [Route("/api/v1/cidades/GetCidadesByName")]
-        public async Task<IActionResult> GetcidadesName()
+        [HttpGet]
+        [Route("/api/v1/cidades/GetCidadesByName/{nome}")]
+        public async Task<IActionResult> GetCidadesByName(string nome)
         {
             try
             {
-                var cidades = await _cidadeService.GetCidadesAsync();
+                var cidades = await _cidadeService.SearchByNameAsync(nome);
+
+
+                return Ok(new ResultViewModel
+                {
+                    Message = "cidades encontrados com sucesso!",
+                    Success = true,
+                    Data = cidades
+                });
+            }
+            catch (System.Exception ex)
+            {
+
+                return Problem(statusCode: 500, detail: ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("/api/v1/cidades/GetCidadesMaisQuentes")]
+        public async Task<IActionResult> GetCidadesMaisQuentes()
+        {
+            try
+            {
+                var cidades = await _cidadeService.GetCidadesMaisQuentes();
 
 
                 return Ok(new ResultViewModel

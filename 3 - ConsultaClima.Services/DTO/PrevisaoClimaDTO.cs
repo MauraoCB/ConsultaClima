@@ -8,7 +8,8 @@ namespace ConsultaClima.Services.DTO
         public DateTime DataPrevisao{ get; set; }
         public string Clima { get; set; }
         public double TemperaturaMinima { get; set; }
-        public double TemperaturaMaxima { get; set; }         
+        public double TemperaturaMaxima { get; set; }
+        public CidadeDTO Cidade { get; set; }
 
         public PrevisaoClimaDTO()
         {}

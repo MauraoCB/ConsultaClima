@@ -10,5 +10,6 @@ namespace ConsultaClima.Services.Interfaces
         Task<IList<CidadeDTO>> GetByEstadoAsync(int estadoId);     
         Task<IList<CidadeDTO>> SearchByNameAsync(string nome);
 
+        Task<IList<CidadeDTO>> GetCidadesMaisQuentes();
     }
 }
