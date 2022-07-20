@@ -22,12 +22,25 @@ namespace ConsultaClima.Infra.Mappings
                 .HasColumnType("INT");
 
             builder.Property(x => x.CidadeId)
+                .HasColumnName("CidadeId")
                  .HasColumnType("INT");
 
-            builder.Property(x => x.Nome)
-                .HasMaxLength(200)
-                .HasColumnName("Nome")
-                .HasColumnType("NVARCHAR(200)");
+            builder.Property(x => x.DataPrevisao)
+                .HasColumnName("DataPrevisao")
+                .HasColumnType("DATE");
+
+            builder.Property(x => x.Clima)
+               .HasMaxLength(15)
+               .HasColumnName("Clima")
+               .HasColumnType("NVARCHAR(15)");
+
+            builder.Property(x => x.TemperaturaMinima)
+               .HasColumnName("TemperaturaMinima")
+                .HasColumnType("NUMERIC(3,1)");
+
+            builder.Property(x => x.TemperaturaMaxima)
+           .HasColumnName("TemperaturaMaxima")
+            .HasColumnType("NUMERIC(3,1)");
         }
     }
 }

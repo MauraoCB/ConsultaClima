@@ -21,7 +21,8 @@ namespace ConsultaClima.Infra.Mappings
                 .UseIdentityColumn()
                 .HasColumnType("INT");
 
-            builder.Property(x => x.EstadoId)                
+            builder.Property(x => x.EstadoId)
+                  .HasColumnName("EstadoId")
                  .HasColumnType("INT");
 
             builder.Property(x => x.Nome)
