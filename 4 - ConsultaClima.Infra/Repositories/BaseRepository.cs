@@ -17,7 +17,8 @@ namespace ConsultaClima.Infra.Repositories{
             _context = context;
         }   
         
-        //Como não serão atualizadas 
+        //Como não serão atualizadas as tabelas, os métodos POST e PUT não existem
+
         public virtual async Task<T> GetAsync(int id){
             var obj = await _context.Set<T>()
                                     .AsNoTracking()

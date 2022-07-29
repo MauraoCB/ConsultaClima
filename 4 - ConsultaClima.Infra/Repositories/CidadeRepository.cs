@@ -26,6 +26,14 @@ namespace ConsultaClima.Infra.Repositories
             _endDate = DateTime.Today.AddDays(1);
         }
 
+        public async Task<List<Cidade>> GetCidadesMaisFrias()
+        {
+            var cidadesMaisFrias = _context.Cidades.Include(c => c.PrevisaoClima.Where(d => d.DataPrevisao >= _startDate && d.DataPrevisao < _endDate)
+                                                             .OrderBy(t => t.TemperaturaMaxima).Take(3))
+                                                     .Include(e => e.Estado).ToList();
+            return await Task.FromResult(cidadesMaisFrias);
+        }
+
         public async Task<List<Cidade>> GetCidadesMaisQuentes()
         {
             var cidadesMaisQuentes =  _context.Cidades.Include(c => c.PrevisaoClima.Where(d=> d.DataPrevisao >= _startDate && d.DataPrevisao < _endDate)

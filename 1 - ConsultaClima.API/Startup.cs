@@ -42,7 +42,7 @@ namespace ConsultaClima.API
             {
                 cfg.CreateMap<Estado, EstadoDTO>().ReverseMap();
                 cfg.CreateMap<EstadoViewModel, EstadoDTO>().ReverseMap();
-                
+                cfg.CreateMap<PrevisaoClima, PrevisaoClimaDTO>().ReverseMap();
             });
 
             services.AddSingleton(autoMapperConfig.CreateMapper());
@@ -63,14 +63,14 @@ namespace ConsultaClima.API
 
             services.AddScoped<IEstadoRepository, EstadoRepository>();
             services.AddScoped<ICidadeRepository, CidadeRepository>();
-
+            services.AddScoped<IPrevisaoClimaRepository, PrevisaoClimaRepository>();
             #endregion
 
             #region Services
 
             services.AddScoped<ICidadeService, CidadeService>();
             services.AddScoped<IEstadoService, EstadoService>();
-
+            services.AddScoped<IPrevisaoClimaService, PrevisaoClimaService>();
             #endregion
 
             #region Swagger

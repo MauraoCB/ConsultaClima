@@ -57,5 +57,13 @@ namespace ConsultaClima.Services.Services
 
             return cidadesDTO;
         }
+
+        public async Task<IList<CidadeDTO>> GetCidadesMaisFrias()
+        {
+            var cidades = await _cidadeRepository.GetCidadesMaisFrias();
+            var cidadesDTO = _mapper.Map<IList<CidadeDTO>>(cidades);
+
+            return cidadesDTO;
+        }
     }
 }

@@ -8,6 +8,7 @@ namespace ConsultaClima.Infra.Interfaces
 
     public interface ICidadeRepository : IBaseRepository<Cidade>
     {
-         Task<List<Cidade>> GetCidadesMaisQuentes();
+        Task<List<Cidade>> GetCidadesMaisQuentes(); 
+        Task<List<Cidade>> GetCidadesMaisFrias();
     }
 }

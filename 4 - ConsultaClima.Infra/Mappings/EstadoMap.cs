@@ -21,11 +21,9 @@ namespace ConsultaClima.Infra.Mappings{
                 .HasColumnType("NVARCHAR(200)");
 
             builder.Property(x => x.UF)
-       .HasMaxLength(2)
-       .HasColumnName("UF")
-       .HasColumnType("NVARCHAR(2)");
-
-
+               .HasMaxLength(2)
+               .HasColumnName("UF")
+               .HasColumnType("NVARCHAR(2)");
         }
     }
 }

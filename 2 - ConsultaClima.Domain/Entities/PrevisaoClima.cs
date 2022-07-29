@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsultaClima.Domain.Entities
 {
-  public  class PrevisaoClima
+  public  class PrevisaoClima:Base
     {
         public int Id { get; set; }
         public int CidadeId { get; set; }

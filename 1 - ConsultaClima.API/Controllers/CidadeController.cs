@@ -37,7 +37,7 @@ namespace ConsultaClima.API.Controllers
 
                 return Ok(new ResultViewModel
                 {
-                    Message = "cidades encontrados com sucesso!",
+                    Message = "Cidades encontradas com sucesso!",
                     Success = true,
                     Data = cidades
                 });
@@ -60,7 +60,7 @@ namespace ConsultaClima.API.Controllers
 
                 return Ok(new ResultViewModel
                 {
-                    Message = "cidades encontrados com sucesso!",
+                    Message = "Cidades encontradas com sucesso!",
                     Success = true,
                     Data = cidades
                 });
@@ -79,6 +79,29 @@ namespace ConsultaClima.API.Controllers
             try
             {
                 var cidades = await _cidadeService.GetCidadesMaisQuentes();
+
+
+                return Ok(new ResultViewModel
+                {
+                    Message = "Cidades encontradas com sucesso!",
+                    Success = true,
+                    Data = cidades
+                });
+            }
+            catch (System.Exception ex)
+            {
+
+                return Problem(statusCode: 500, detail: ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("/api/v1/cidades/GetCidadesMaisFrias")]
+        public async Task<IActionResult> GetCidadesMaisFrias()
+        {
+            try
+            {
+                var cidades = await _cidadeService.GetCidadesMaisFrias();
 
 
                 return Ok(new ResultViewModel
