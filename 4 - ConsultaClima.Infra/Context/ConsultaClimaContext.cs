@@ -21,11 +21,13 @@ namespace ConsultaClima.Infra.Context{
 
             builder.Entity<Estado>()
            .HasMany(e => e.Cidades)
-           .WithOne(c => c.Estado);
+           .WithOne(c => c.Estado)
+            .HasForeignKey(c => c.EstadoId);
 
             builder.Entity<Cidade>()
             .HasMany(c => c.PrevisaoClima)
-            .WithOne(p => p.Cidade);
+            .WithOne(p => p.Cidade)
+            .HasForeignKey(p=> p.CidadeId);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
